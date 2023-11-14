@@ -1,8 +1,10 @@
-import { Button } from "@/components/ui/button";
-import React from "react";
+"use client";
+import Board from "@/components/Board";
 
-type Props = {};
-
-export default function page({}: Props) {
-  return <div></div>;
+export default function page() {
+  return (
+    <>
+      <Board />
+    </>
+  );
 }
