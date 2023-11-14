@@ -1,8 +1,12 @@
+import type { Metadata } from "next";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Sidebar from "@/components/ui/sidebar/Sidebar";
+import ReactQueryProvider from "./ReactQueryProvider";
+
+const queryClient = new QueryClient();
 
 export const metadata: Metadata = {
   title: "Kanban Board",
@@ -17,16 +21,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <Sidebar />
-          {children}
-        </ThemeProvider>
+        <ReactQueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <div className="flex flex-1 overflow-hidden">
+              <Sidebar />
+              {children}
+            </div>
+          </ThemeProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

@@ -1,10 +1,10 @@
 "use client";
-import Board from "@/components/Board";
+import Main from "@/components/Main";
 
 export default function page() {
   return (
     <>
-      <Board />
+      <Main />
     </>
   );
 }

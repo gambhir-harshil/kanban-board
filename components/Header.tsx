@@ -5,7 +5,7 @@ import { Input } from "./ui/input";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-8 py-4 w-full border-b-2 border-border">
+    <header className="flex items-center justify-between px-8 py-4 w-full border-b-2 border-border h-20">
       <h1 className="text-[32px] font-extrabold uppercase tracking-wider hidden sm:block">
         Kanban
       </h1>

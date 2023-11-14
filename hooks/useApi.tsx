@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 axios.defaults.baseURL = "http://localhost:3000/api";
 
@@ -8,22 +8,19 @@ const useApi = (endpoint) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  async function fetchData() {
     setLoading(true);
-    async function fetchData() {
-      try {
-        const res = await axios.get(endpoint);
-        setResponse(res.data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setTimeout(() => {
-          setLoading(false);
-        }, 500);
-      }
+    try {
+      const res = await axios.get(endpoint);
+      setResponse(res.data);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
     }
-    fetchData();
-  }, [endpoint]);
+  }
 
   const postData = async (data) => {
     try {

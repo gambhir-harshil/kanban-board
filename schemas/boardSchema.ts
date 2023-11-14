@@ -11,7 +11,7 @@ const boardSchema = z.object({
     }),
   description: z
     .string()
-    .min(12, {
+    .min(6, {
       message: "Description must be atleast 12 characters.",
     })
     .max(50, {
